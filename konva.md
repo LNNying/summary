@@ -107,3 +107,13 @@ shape 图形
       }
 
 
+认知：
+在vue中通过this.$refs.[]获取到的是stage在vue中的虚拟dom  通过this.$refs.[].getNode().getStage()才能获取到stage本身
+在拖拽整体画布(或某个图形)的时候会自动修改画布中x,y 获取方式 this.$refs[].getNode().getStage().attrs.x/y  attrs中存放的是画布的属性 如 x,y,offsetX,offsetY,width,height等
+stage中也有scale,rotation,offsetX/Y等;
+画布在旋旋转的时候是以左上角为基点，通过offset:{x,y}调整偏移量. 相当于canvas中通过translateX/Y调整坐标系一样
+stage.getPointerPosition()获取的是鼠标在画布中坐标
+
+.batchDraw() 重新绘制   如果图形没有变化 通过.draw() 重新绘制
+
+
